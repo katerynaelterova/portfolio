@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kateryna Elterova – Digital Marketing Manager</title>
+  <style>
+    :root {
+      --bg: #e5f7f7;
+      --accent: #005f99;
+      --accent-soft: #0b789f;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --card-bg: #ffffff;
+      --chip-bg: #d7ecf3;
+      --border-soft: #c7e3ea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 24px 20px 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+      padding: 32px 28px 36px;
+      border: 1px solid var(--border-soft);
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .photo-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, #75cfd0, #005f99);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffffff;
+    }
+
+    .hero-main h1 {
+      font-size: 2.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 32px;
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .hero-meta a {
+      color: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .hero-meta a:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTIONS */
+
+    section {
+      margin-top: 26px;
+    }
+
+    h2.section-title {
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      font-size: 0.97rem;
+      color: var(--text-main);
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 24px;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-item + .experience-item {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-soft);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-weight: 600;
+    }
+
+    .exp-company {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .exp-period {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .experience-item ul {
+      margin-top: 6px;
+      padding-left: 18px;
+    }
+
+    .experience-item li {
+      margin-bottom: 4px;
+    }
+
+    /* LISTS + CHIPS */
+
+    ul {
+      list-style: disc;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--accent-soft);
+      border: 1px solid var(--border-soft);
+      white-space: nowrap;
+    }
+
+    .muted-list li {
+      margin-bottom: 3px;
+    }
+
+    /* FOOTER / CONTACT */
+
+    .contact-block {
+      margin-top: 6px;
+    }
+
+    .contact-block a {
+      color: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .card {
+        padding: 24px 18px 28px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .hero-main {
+        text-align: center;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .two-cols {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        margin: 10px auto 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <!-- HERO -->
+      <header class="hero">
+        <div class="photo-wrapper">
+          <!-- положи своё фото в ту же папку и укажи здесь его имя -->
+          <img src="kateryna-photo.png" alt="Kateryna Elterova" />
+        </div>
+        <div class="hero-main">
+          <h1>Kateryna Elterova</h1>
+          <p class="role">Digital Marketing Manager</p>
+          <p class="tagline">
+            Digital Marketing Manager with 8+ years of experience in IT, SaaS
+            and B2B. Focused on SEO, analytics and multi-channel marketing that
+            supports measurable business growth.
+          </p>
+          <div class="hero-meta">
+            <span>📞 <a href="tel:+4915163466702">+49 151 63466702</a></span>
+            <span>✉️ <a href="mailto:elterova.ekaterina@gmail.com">elterova.ekaterina@gmail.com</a></span>
+            <span>📍 Pirna, Germany</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2 class="section-title">About me</h2>
+        <div class="section-content">
+          <p>
+            I am a results-driven Digital Marketing Manager with a background in
+            marketing and economics and long-term experience in IT and SaaS
+            companies. I enjoy combining data, customer insights and clear
+            communication to build campaigns that generate demand, leads and
+            long-term customer relationships.
+          </p>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE + SKILLS -->
+      <section id="experience-skills">
+        <div class="two-cols">
+          <!-- EXPERIENCE -->
+          <div>
+            <h2 class="section-title">Experience</h2>
+            <div class="section-content">
+
+              <article class="experience-item">
+                <div class="exp-header">
+                  <div>
+                    <div class="exp-role">Digital Marketing Manager</div>
+                    <div class="exp-company">TrafficTerminal – IT company</div>
+                  </div>
+                  <div class="exp-period">Dec 2015 – Feb 2022</div>
+                </div>
+                <ul>
+                  <li>
+                    Supported the development and execution of SEO and online
+                    marketing strategies to increase visibility, user
+                    acquisition and conversion rates.
+                  </li>
+                  <li>
+                    Conducted keyword research, content optimisation and
+                    technical website support (WordPress &amp; CMS).
+                  </li>
+                  <li>
+                    Analysed digital campaigns and user behaviour with Google
+                    Analytics, SEMrush, Ahrefs, Google Ads and CRM tools and
+                    translated insights into actionable recommendations.
+                  </li>
+                  <li>
+                    Performed market and competitor research and segmented B2B
+                    and SaaS target audiences for tailored campaigns.
+                  </li>
+                  <li>
+                    Contributed to the creation of multi-channel campaigns
+                    (email, social media, landing pages) for lead generation and
+                    customer acquisition.
+                  </li>
+                  <li>
+                    Collaborated closely with product, content and design teams
+                    to develop clear and understandable marketing and product
+                    content.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="experience-item">
+                <div class="exp-header">
+                  <div>
+                    <div class="exp-role">Online Marketing Manager (Freelance)</div>
+                    <div class="exp-company">SEO &amp; Content Projects</div>
+                  </div>
+                  <div class="exp-period">Dec 2014 – Nov 2015</div>
+                </div>
+                <ul>
+                  <li>Planned and implemented SEO and content projects for small businesses.</li>
+                  <li>
+                    Created landing pages, blog articles and on-page
+                    optimisation concepts to improve visibility.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="experience-item">
+                <div class="exp-header">
+                  <div>
+                    <div class="exp-role">Marketing Manager</div>
+                    <div class="exp-company">Maktechol GmbH</div>
+                  </div>
+                  <div class="exp-period">May 2011 – Nov 2014</div>
+                </div>
+                <ul>
+                  <li>
+                    Supported sales and account management with marketing
+                    materials, presentations and documentation.
+                  </li>
+                  <li>
+                    Worked closely with technical teams and partners to
+                    communicate product benefits clearly.
+                  </li>
+                  <li>
+                    Conducted market and competitor analysis and prepared
+                    recommendations for revenue growth.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="experience-item">
+                <div class="exp-header">
+                  <div>
+                    <div class="exp-role">Parental leave</div>
+                    <div class="exp-company">Family break</div>
+                  </div>
+                  <div class="exp-period">Nov 2012 – Nov 2013</div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- SKILLS & TOOLS -->
+          <div>
+            <h2 class="section-title">Skills &amp; tools</h2>
+            <div class="section-content">
+              <h3>Marketing focus</h3>
+              <ul class="muted-list">
+                <li>SEO, SEM and content strategy</li>
+                <li>Multi-channel campaigns (SEO, SEA, email, social media)</li>
+                <li>Lead generation &amp; demand generation (B2B &amp; SaaS)</li>
+                <li>Web analytics &amp; KPI tracking</li>
+              </ul>
+
+              <h3 style="margin-top: 14px;">Tools</h3>
+              <div class="chips">
+                <span class="chip">Google Analytics</span>
+                <span class="chip">Google Search Console</span>
+                <span class="chip">Google Ads</span>
+                <span class="chip">SEMrush</span>
+                <span class="chip">Ahrefs</span>
+                <span class="chip">Similarweb</span>
+                <span class="chip">Sistrix</span>
+                <span class="chip">WordPress (CMS)</span>
+                <span class="chip">Canva</span>
+                <span class="chip">HubSpot</span>
+                <span class="chip">Figma</span>
+                <span class="chip">Trello</span>
+                <span class="chip">Asana</span>
+                <span class="chip">Slack</span>
+                <span class="chip">Redmine</span>
+                <span class="chip">MS Office</span>
+                <span class="chip">Google Workspace</span>
+                <span class="chip">HTML / CSS (basic)</span>
+                <span class="chip">AI tools (basic)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LANGUAGES & STRENGTHS -->
+      <section id="languages-strengths">
+        <div class="two-cols">
+          <div>
+            <h2 class="section-title">Languages</h2>
+            <div class="section-content">
+              <ul class="muted-list">
+                <li>English – B2 (currently in C1 course)</li>
+                <li>German – B1 (currently in B2 course)</li>
+                <li>Russian – C2</li>
+                <li>Ukrainian – C1</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h2 class="section-title">Personal strengths</h2>
+            <div class="section-content">
+              <ul class="muted-list">
+                <li>Analytical and structured thinking</li>
+                <li>Strong communication skills</li>
+                <li>Organisation talent &amp; result orientation</li>
+                <li>Flexibility and sense of responsibility</li>
+                <li>Team player, but also confident working independently</li>
+                <li>Reliable and used to meeting deadlines</li>
+                <li>Resilient and able to handle several tasks at once</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-content">
+          <p>
+            <strong>National Mykhailo Tuhan-Baranovskyi University of Economics and Trade</strong><br />
+            Master’s degree in Economics, major in Marketing<br />
+            Sep 2002 – Jun 2007
+          </p>
+          <p style="margin-top: 10px;">
+            <strong>WBS Training, Germany</strong><br />
+            Further training in Digital Marketing (Weiterbildung)<br />
+            Aug 2024 – Mar 2025
+          </p>
+        </div>
+      </section>
+
+      <!-- OTHER & CONTACT -->
+      <section id="other-contact">
+        <div class="two-cols">
+          <div>
+            <h2 class="section-title">Other</h2>
+            <div class="section-content">
+              <ul class="muted-list">
+                <li>Work permit in Germany – §24 AufenthG</li>
+                <li>ZAB recognition procedure for university diploma submitted</li>
+                <li>Driving licence: category B</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <div class="section-content contact-block">
+              <p>
+                If you’d like to discuss potential collaboration or opportunities,
+                feel free to get in touch:
+              </p>
+              <p style="margin-top: 6px;">
+                ✉️
+                <a href="mailto:elterova.ekaterina@gmail.com"
+                  >elterova.ekaterina@gmail.com</a
+                ><br />
+                📞 <a href="tel:+4915163466702">+49 151 63466702</a><br />
+                📍 Pirna, Germany
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
